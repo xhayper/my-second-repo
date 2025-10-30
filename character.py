@@ -1,3 +1,5 @@
+import random
+
 class Character:
     def __init__(self, name, hp, attack_power):
         self.name = name
@@ -5,8 +7,9 @@ class Character:
         self.attack_power = attack_power
 
     def attack(self, other):
-        other.hp -= self.attack_power
-        print(f"{self.name} attacks {other.name} for {self.attack_power} damage!")
+        attack_point = (random.randint(30, 90) / 100) * self.attack_power
+        other.hp -= attack_point
+        print(f"{self.name} attacks {other.name} for {attack_point} damage!")
 
     def is_alive(self):
         return self.hp > 0
